@@ -1,1 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #263038;
+}
+.container{
+    position: relative;
+    width: 196px;
+    height: 196px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px #ebebeb;
+    overflow: hidden;
+}
+.container input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 5;
 
+}
+.bin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 58px;
+    z-index: 2;
+}
+.lid{
+    position: relative;
+    width: 50px;
+    height: 4px;
+    background: #263038;
+    left: -4px;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+.lid::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 6px;
+    background: #263038;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px 10px 0 0;
+    transition: 0.5s;
+}
+.box{
+    position: relative;
+    height: 52px;
+    background: #263038;
+    margin-top: 2px;
+    border-radius: 0 0 8px 8px;
+    transition: 0.5s;
+}
+.box-inner{
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 44px;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    transition: 0.5s;
+}
+.lines,
+.lines::before,
+.lines::after{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 30px;
+    background: #263038;
+    border-radius: 4px;
+}
+.lines{
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.lines::before{ left: -10px;}
+.lines::after{ left: 10px;}
+
+.layer{
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: #ff3d00;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    transition: 0.25s ease;
+    z-index: 1;
+}
+input:checked ~ .layer{
+    width: 226px;
+    height: 226px;
+}
+input:checked ~ .bin .lid,
+input:checked ~ .bin .lid::before,
+input:checked ~ .bin .box,
+input:checked ~ .bin .box-inner{
+    background: #fff;
+}
+input:checked ~ .bin .lines,
+input:checked ~ .bin .lines::before,
+input:checked ~ .bin .lines::after{
+    background: #ff3d00;
+    transition-delay: 0.2s;
+}
+input:checked ~ .bin .box{
+    animation: shake .2s ease .1s;
+}
+input:checked ~ .bin .lid{
+    animation: lift-up .8s ease .1s,
+               shake-up .8s ease .1s,
+               final-shake .2s ease .8s;
+}
+@keyframes shake{
+    0%{ transform: rotate(5deg);}
+    25%{ transform: rotate(0);}
+    75%{ transform: rotate(-5deg);}
+    100%{ transform: rotate(0);}
+}
+@keyframes lift-up{
+    0%{top: 0;}
+    50%{top: -50px;}
+   100%{top: 0;}
+}
+@keyframes shake-up{
+    0%{ transform: rotate(0);}
+    25%{ transform: rotate(-15deg);}
+    50%{ transform: rotate(0);}
+    75%{ transform: rotate(15deg);}
+    100%{ transform: rotate(0);}
+}
+@keyframes final-shake{
+    0%{ transform: rotate(0);}
+    80%{ transform: rotate(5deg);}
+    90%{ transform: rotate(-5deg);}
+    100%{ transform: rotate(0);}
+}

@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Send button animation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+      <button class="stage" id="send" aria-label="Send">
+        <svg class="arc" viewBox="0 0 170 170" aria-hidden="true"><circle cx="85" cy="85" r="64"/></svg>
+     
+        <div class="sent" aria-hidden="true"><span>Sent!</span></div>
+     
+        <div class="body">
+          <div class="pill">
+            <span class="label">Send</span>
+            <svg class="check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.4 12.3 10.1 17 18.7 7"/></svg>
+            <span class="ripple"></span>
+          </div>
+        </div>
+     
+        <svg class="plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3 3 10.5l7.5 3 3 7.5z"/></svg>
+        <svg class="plane-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 21 21 12 16.5 3 21z"/><path class="crease" d="M12 6.5V15.5"/></svg>
+      </button>
+      <p class="hint" id="hint">Click to send</p>
+      <p class="sr" id="status" aria-live="polite"></p>
+    </main>
+    </body>
+</html>

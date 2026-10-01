@@ -1,1 +1,71 @@
 
+    html,
+    body {
+      height: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e313f;
+      overflow: hidden;
+    }
+
+    button{
+        width: 242px;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    button svg{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .ear-left-outer,
+    .ear-right-outer{
+        fill: #919191;
+    }
+
+    .ear-left-inner,
+    .ear-right-inner{
+        fill: #6d6d6d;
+    }
+
+    .eye-right-outer,
+    .eye-left-outer,
+    .nostril-right-outer,
+    .nostril-left-outer,
+    .body{
+        fill: #aaa;
+    }
+
+    .nostril-left-inner,
+    .nostril-right-inner{
+        fill: #8c8c8c;
+    }
+
+    .eye-right-inner,
+    .eye-left-inner{
+        fill: #fff;
+    }
+
+    .freckle{
+        fill: #7c7c7c;
+    }
+
+    .tongue{
+        fill: #ff4848;
+    }
+
+    .tooth-left,
+    .tooth-right{
+         fill: #ffffe1;
+    }

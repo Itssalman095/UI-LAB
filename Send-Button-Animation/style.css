@@ -1,1 +1,182 @@
+:root {
+    --bg: #271d87;
+    --pill: #eef0ff;
+    --ink: #271d87;
+    --blue: #4a63e7;
+    --font: "Nunito", "Avenir Next", Avenir, system-ui, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
 
+html {
+    height: 100%;
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    color: #fff;
+    font-family: var(--font);
+}
+
+main{
+    display: grid;
+    justify-content: center;
+    gap: 12px;
+}
+
+.stage{
+    all: unset;
+    box-sizing: border-box;
+    width: 320px;
+    height: 200px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+.stage > *{
+    grid-area: 1 / 1;
+}
+
+.body{
+    display: grid;
+    place-items: center;
+    z-index: 2;
+}
+
+.pill{
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    width: 200px;
+    height: 58px;
+    background: var(--pill);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(8, 4, 60, .35);
+}
+
+.check{
+    grid-area: 1 / 1;
+    width: 38px;
+    height: 38px;
+    opacity: 0;
+}
+
+.check path{
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 3.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.ripple{
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background: rgba(39, 28, 135, .35);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.plane,
+.plane-back{
+    z-index: 3;
+    pointer-events: none;
+}
+
+.plane{
+    width: 30px;
+    height: 30px;
+    color: var(--blue);
+    transform: translate(-54px , 0);
+}
+
+.plane-back{
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    opacity: 0;
+}
+
+.plane path,
+.plane-back path{
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.label{
+    grid-area: 1 / 1;
+    margin-left: 44px;
+    white-space: nowrap;
+    font-size: 26px;
+    color: var(--ink);
+}
+
+.arc{
+    width: 170px;
+    height: 170px;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-dasharray: 90 312;
+    fill: none;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.sent{
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    width: 170px;
+    height: 52px;
+    border-radius: 10px;
+    background: #f4f5ff;
+    transform-origin: left center;
+    transform: translateX(19px) scale(0);
+}
+
+.sent span{
+    opacity: 0;
+    padding-left: 38px;
+    font-weight: 800;
+    font-size: 27px;
+    color: var(--blue);
+}
+
+.hint{
+    margin: 0 auto;
+    font-size: 14px;
+    opacity: .6;
+}
+
+.sr{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.plane-back .crease{
+    fill: none;
+    stroke: var(--ink);
+    stroke-opacity: .5;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+}

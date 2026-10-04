@@ -1,1 +1,1053 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  html,
+  body {
+  
+    height: 100%;
+    margin: 0;
+  
+    font-family:
+      'Segoe UI',
+      Helvetica,
+      Arial,
+      sans-serif;
+  
+    overflow: hidden;
+  
+    background:
+      radial-gradient(
+        120% 90% at 50% 30%,
+        #3f6a97 0%,
+        #123a63 70%
+      );
+  
+    transition:
+      background 1.1s ease;
+  }
+  
+  
+  /* 
+     NIGHT BACKGROUND
+  */
+  
+  body.night {
+  
+    background:
+      radial-gradient(
+        120% 90% at 50% 30%,
+        #0a1230 0%,
+        #04050f 75%
+      );
+  
+  }
+  
+  
+  body {
+  
+    display: flex;
+  
+    align-items: center;
+    justify-content: center;
+  
+  }
+  
+  
+  /* 
+     FULLSCREEN STAGE
+  */
+  
+  .stage {
+  
+    position: relative;
+  
+    width: 100vw;
+  
+    height: 100vh;
+    height: 100svh;
+  
+    overflow: hidden;
+  
+  }
+  
+  
+  /* 
+     PAGE STARS
+   */
+  
+  .page-stars {
+  
+    position: absolute;
+  
+    inset: 0;
+  
+    pointer-events: none;
+  
+    opacity: 0;
+  
+    transition:
+      opacity 1.2s ease;
+  
+  }
+  
+  
+  .stage.night .page-stars {
+  
+    opacity: 1;
+  
+  }
+  
+  
+  .page-stars span {
+  
+    position: absolute;
+  
+    width: 2px;
+    height: 2px;
+  
+    background: #fff;
+  
+    border-radius: 50%;
+  
+    animation:
+      twinkle 3s ease-in-out infinite;
+  
+  }
+  
+  
+  @keyframes twinkle {
+  
+    0%,
+    100% {
+      opacity: .15;
+    }
+  
+    50% {
+      opacity: .9;
+    }
+  
+  }
+  
+  
+  /* 
+     SHOOTING STARS
+  */
+  
+  .shooting-stars {
+  
+    position: absolute;
+  
+    inset: 0;
+  
+    pointer-events: none;
+  
+    opacity: 0;
+  
+    transition:
+      opacity 1s ease;
+  
+  }
+  
+  
+  .stage.night .shooting-stars {
+  
+    opacity: 1;
+  
+  }
+  
+  
+  .shooting {
+  
+    position: absolute;
+  
+    width: 2px;
+    height: 2px;
+  
+    border-radius: 50%;
+  
+    background: #fff;
+  
+    opacity: 0;
+  
+    transform: rotate(-32deg);
+  
+    animation:
+      shoot .5s linear infinite;
+  
+  }
+  
+  
+  .shooting::before {
+  
+    content: "";
+  
+    position: absolute;
+  
+    top: 50%;
+    right: 0;
+  
+    width: 90px;
+    height: 1px;
+  
+    transform:
+      translateY(-50%);
+  
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,.9)
+      );
+  
+  }
+  
+  
+  @keyframes shoot {
+  
+    0% {
+  
+      opacity: 0;
+  
+      transform:
+        rotate(-32deg)
+        translateX(0);
+  
+    }
+  
+    2% {
+      opacity: 1;
+    }
+  
+    12% {
+  
+      opacity: 0;
+  
+      transform:
+        rotate(-32deg)
+        translateX(-160px);
+  
+    }
+  
+    100% {
+  
+      opacity: 0;
+  
+      transform:
+        rotate(-32deg)
+        translateX(-160px);
+  
+    }
+  
+  }
+  
 
+  /* =========================================
+   SHOOTING STARS INSIDE TOGGLE
+========================================= */
+
+.toggle-shooting-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    overflow: hidden;
+    z-index: 2;
+  
+    transition:
+      opacity 1s ease;
+  }
+  
+  .switch.night .toggle-shooting-stars {
+    opacity: 1;
+  }
+  
+  
+  .toggle-shooting {
+    position: absolute;
+  
+    width: 3px;
+    height: 3px;
+  
+    border-radius: 50%;
+  
+    background: #fff;
+  
+    opacity: 0;
+  
+    transform: rotate(-32deg);
+  
+    box-shadow:
+      0 0 5px rgba(255,255,255,.9);
+  
+    animation:
+      toggleShoot 3.5s linear infinite;
+  }
+  
+  
+  .toggle-shooting::before {
+    content: "";
+  
+    position: absolute;
+  
+    top: 50%;
+    right: 0;
+  
+    width: 55px;
+    height: 1px;
+  
+    transform:
+      translateY(-50%);
+  
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,.85)
+      );
+  }
+  
+  
+  /* Star 1 */
+  
+  .toggle-shooting.s1 {
+    top: 25%;
+    left: 72%;
+  
+    animation-delay: 0s;
+  }
+  
+  
+  /* Star 2 */
+  
+  .toggle-shooting.s2 {
+    top: 48%;
+    left: 48%;
+  
+    animation-delay: -1.7s;
+  }
+  
+  
+  /* Star 3 */
+  
+  .toggle-shooting.s3 {
+    top: 18%;
+    left: 30%;
+  
+    animation-delay: -2.8s;
+  }
+  
+  
+  @keyframes toggleShoot {
+  
+    0% {
+      opacity: 0;
+      transform:
+        rotate(-32deg)
+        translateX(0);
+    }
+  
+    5% {
+      opacity: 1;
+    }
+  
+    18% {
+      opacity: 0;
+  
+      transform:
+        rotate(-32deg)
+        translateX(-75px);
+    }
+  
+    100% {
+      opacity: 0;
+  
+      transform:
+        rotate(-32deg)
+        translateX(-75px);
+    }
+  
+  }
+  
+  /* 
+     SCENE
+  */
+  
+  .scene {
+  
+    position: relative;
+  
+    z-index: 1;
+  
+    height: 100%;
+  
+    display: flex;
+  
+    flex-direction: column;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    gap: 5vh;
+  
+    user-select: none;
+  
+    -webkit-user-select: none;
+  
+  }
+  
+  
+  /* 
+     LABEL
+   */
+  
+  .label {
+  
+    position: relative;
+  
+    height: 20px;
+  
+    width: 240px;
+  
+    text-align: center;
+  
+  }
+  
+  
+  .label span {
+  
+    position: absolute;
+  
+    left: 0;
+    right: 0;
+  
+    font-size: 14px;
+  
+    letter-spacing: 6px;
+  
+    font-weight: 400;
+  
+    color: #e9f1fb;
+  
+    text-transform: uppercase;
+  
+    opacity: 0;
+  
+    transform:
+      translateY(4px);
+  
+    transition:
+      opacity .55s ease,
+      transform .55s ease;
+  
+  }
+  
+  
+  .label span.visible {
+  
+    opacity: .85;
+  
+    transform:
+      translateY(0);
+  
+  }
+  
+  
+  /* 
+     SWITCH
+  */
+  
+  .switch {
+  
+    position: relative;
+  
+    width: 78vw;
+  
+    max-width: 320px;
+  
+    aspect-ratio: 300 / 96;
+  
+    border-radius: 48px;
+  
+    cursor: pointer;
+  
+    padding: 0;
+  
+    border: none;
+  
+    outline: none;
+  
+    -webkit-tap-highlight-color:
+      transparent;
+  
+    box-shadow:
+  
+      0 0 0 1px
+      rgba(255,255,255,.35)
+      inset,
+  
+      0 10px 30px
+      rgba(0,0,0,.35);
+  
+  }
+  
+  
+  /* 
+     TRACK
+   */
+  
+  .track {
+  
+    position: absolute;
+  
+    inset: 0;
+  
+    border-radius: 48px;
+  
+    overflow: hidden;
+  
+    background:
+      linear-gradient(
+        100deg,
+        #a9d3e8 0%,
+        #5e9fd6 100%
+      );
+  
+    transition:
+      background 1.1s ease;
+  
+  }
+  
+  
+  .switch.night .track {
+  
+    background:
+      linear-gradient(
+        100deg,
+        #12123f 0%,
+        #2c2f60 100%
+      );
+  
+  }
+  
+  
+  /* 
+     TRACK LIGHT OVERLAY
+   */
+  
+  .track::after {
+  
+    content: "";
+  
+    position: absolute;
+  
+    inset: 0;
+  
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,0) 40%
+      );
+  
+    pointer-events: none;
+  
+    z-index: 5;
+  
+  }
+  
+  
+  /* 
+     STARS INSIDE TRACK
+  */
+  
+  .stars {
+  
+    position: absolute;
+  
+    inset: 0;
+  
+    opacity: 0;
+  
+    transition:
+      opacity 1s ease;
+  
+    z-index: 1;
+  
+  }
+  
+  
+  .switch.night .stars {
+  
+    opacity: 1;
+  
+  }
+  
+  
+  .stars span {
+  
+    position: absolute;
+  
+    width: 2px;
+    height: 2px;
+  
+    border-radius: 50%;
+  
+    background: #fff;
+  
+  }
+  
+  
+  /* 
+     MOON
+  */
+  
+  .moon {
+  
+    position: absolute;
+  
+    left: 12%;
+  
+    top: 10%;
+  
+    width: 9%;
+    font-size: 48px;
+  
+    aspect-ratio: 1;
+  
+    transform:
+      translateY(-50%) rotate(-130deg);
+  
+    opacity: .35;
+  
+    transition:
+      opacity .45s ease;
+  
+    z-index: 2;
+  
+  }
+  
+  
+  .switch.night .moon {
+  
+    opacity: 1;
+  
+  }
+  
+
+  
+  
+  /* 
+     SUN
+   */
+  
+  .sun {
+  
+    position: absolute;
+  
+    right: 12%;
+  
+    top: 50%;
+  
+    width: 13%;
+  
+    aspect-ratio: 1;
+  
+    transform:
+      translateY(-50%);
+  
+    border-radius: 50%;
+  
+    background:
+      radial-gradient(
+        circle at 35% 30%,
+        #fff6c8,
+        #ffe98a 60%,
+        #f7d55c 100%
+      );
+  
+    box-shadow:
+      0 0 14px 4px
+      rgba(255,233,138,.8);
+  
+    opacity: 1;
+  
+    transition:
+      opacity .8s ease;
+  
+    z-index: 2;
+  
+  }
+  
+  
+  .switch.night .sun {
+  
+    opacity: 0;
+  
+  }
+  
+  
+  /* 
+     BIRDS
+  */
+  
+  .birds {
+  
+    position: absolute;
+  
+    top: 26%;
+  
+    left: 0;
+  
+    width: 100%;
+  
+    height: 20%;
+  
+    opacity: .9;
+  
+    transition:
+      opacity .8s ease;
+  
+    z-index: 2;
+  
+  }
+  
+  
+  .switch.night .birds {
+  
+    opacity: 0;
+  
+  }
+  
+  
+  .bird {
+  
+    position: absolute;
+  
+    top: 0;
+  
+    width: 16px;
+  
+    height: 9px;
+  
+    animation:
+      fly 7s linear infinite;
+  
+  }
+  
+  
+  .bird svg {
+  
+    width: 100%;
+    height: 100%;
+  
+    display: block;
+  
+  }
+  
+  
+  .bird .wing {
+  
+    transform-origin:
+      7px 6px;
+  
+    animation:
+      flap .5s ease-in-out infinite;
+  
+  }
+  
+  
+  .bird.b2 {
+  
+    animation-delay: -2.3s;
+  
+    top: 35%;
+  
+  }
+  
+  
+  .bird.b2 .wing {
+  
+    animation-delay: -.18s;
+  
+  }
+  
+  
+  .bird.b3 {
+  
+    animation-delay: -4.6s;
+  
+    top: 8%;
+  
+  }
+  
+  
+  .bird.b3 .wing {
+  
+    animation-delay: -.32s;
+  
+  }
+  
+  
+  @keyframes fly {
+  
+    from {
+      left: 75%;
+    }
+  
+    to {
+      left: -15%;
+    }
+  
+  }
+  
+  
+  @keyframes flap {
+  
+    0%,
+    100% {
+      transform: scaleY(1);
+    }
+  
+    50% {
+      transform: scaleY(.35);
+    }
+  
+  }
+  
+  
+  /* 
+     CLOUD SYSTEM
+ */
+  
+  .clouds {
+  
+    position: absolute;
+  
+    left: 0;
+    right: 0;
+  
+    /*
+    */
+    bottom: -4%;
+  
+    /*
+      Toggle-এর প্রায় অর্ধেক অংশ
+    */
+    height: 48%;
+  
+    overflow: hidden;
+  
+    pointer-events: none;
+  
+    z-index: 3;
+  
+  }
+  
+  
+  /* 
+     MOVING CLOUD TRACK
+   */
+  
+  .cloud-track {
+  
+    position: absolute;
+  
+    left: 0;
+  
+    bottom: 0;
+  
+    width: 100%;
+  
+    height: 100%;
+  
+    display: flex;
+  
+    flex-wrap: nowrap;
+  
+    /*
+      Continuous movement
+    */
+    animation:
+      cloudMove 16s linear infinite;
+  
+  }
+  
+  
+  /* 
+     CLOUD IMAGE
+   */
+  
+  .cloud-track img {
+  
+    flex: 0 0 50%;
+  
+    width: 55%;
+  
+    height: 100%;
+  
+    display: block;
+  
+    object-fit:contain;
+  
+    object-position:
+      center bottom;
+
+  
+    pointer-events: none;
+  
+    user-select: none;
+  
+    -webkit-user-drag: none;
+  
+    transform:scale(1.12);
+
+    margin-left:-2.5%;
+    margin-right:-2.5%;
+  }
+  
+  
+  /* 
+     CLOUD MOVEMENT
+   */
+  
+  @keyframes cloudMove {
+  
+    from {
+  
+      transform:
+        translateX(0);
+  
+    }
+  
+    to {
+  
+      transform:
+        translateX(-50%);
+  
+    }
+  
+  }
+  
+  
+  /* 
+     KNOB
+   */
+  
+  .knob {
+  
+    position: absolute;
+  
+    top: 8%;
+  
+    left: 2.5%;
+  
+    width: 27%;
+  
+    aspect-ratio: 1;
+  
+    border-radius: 50%;
+  
+    background:
+      radial-gradient(
+        circle at 32% 30%,
+        #ffffff,
+        #fdfdfd 55%,
+        #f4f4f4 100%
+      );
+  
+    box-shadow:
+  
+      0 0 20px 6px
+      rgba(255,255,255,.05),
+  
+      0 0 26px 10px
+      rgba(255,244,190,.55);
+  
+    transition:
+  
+      left .65s
+      cubic-bezier(
+        .65,
+        -.1,
+        .25,
+        1.15
+      ),
+  
+      box-shadow 1.1s ease;
+  
+    z-index: 6;
+  
+  }
+  
+  
+  .switch.night .knob {
+  
+    box-shadow:
+  
+      0 0 18px 6px
+      rgba(255,255,255,.9),
+  
+      0 0 50px 16px
+      rgba(160,190,255,.55);
+  
+  }
+  
+  
+  .switch.on .knob {
+  
+    left: 70.5%;
+  
+  }
+  
+  
+  /* 
+     REFLECTION
+  */
+  
+  .reflection {
+  
+    width: 78vw;
+  
+    max-width: 320px;
+  
+    aspect-ratio: 300 / 96;
+  
+    margin-top: -.5vh;
+  
+    pointer-events: none;
+  
+    transform:
+      scaleY(-1);
+  
+    filter:
+      blur(2px);
+  
+    opacity: .3;
+  
+    -webkit-mask-image:
+      linear-gradient(
+        to top,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,0) 95%
+      );
+  
+    mask-image:
+      linear-gradient(
+        to top,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,0) 75%
+      );
+  
+  }
+  
+  
+  /* Reflection should not receive click */
+  .reflection .track,
+  .reflection .switch {
+  
+    pointer-events: none;
+  
+  }

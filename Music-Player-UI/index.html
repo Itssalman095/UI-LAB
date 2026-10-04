@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Player - Now Playing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="player" id="player">
+
+  <div class="now-playing">
+    <div class="meta-row">
+      <span class="side-label">Now playing</span>
+      <span class="track-count" id="trackCount">Track 1 of 5</span>
+    </div>
+
+    <h1 class="track-title" id="trackTitle">Amber Hours</h1>
+    <p class="track-artist" id="trackArtist">The Nocturne Quartet</p>
+    <p class="track-album" id="trackAlbum">from <em>Low Light</em>, 2019</p>
+
+    <div class="progress-wrap">
+      <div class="progress-track" id="progressTrack" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+        <div class="progress-fill" id="progressFill"></div>
+        <div class="progress-knob" id="progressKnob"></div>
+      </div>
+      <div class="time-row">
+        <span id="timeCurrent">0:00</span>
+        <span id="timeTotal">4:12</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-ghost" id="shuffleBtn" aria-pressed="false" aria-label="Shuffle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 3 21 3 21 8"></polyline>
+          <line x1="4" y1="20" x2="21" y2="3"></line>
+          <polyline points="21 16 21 21 16 21"></polyline>
+          <line x1="15" y1="15" x2="21" y2="21"></line>
+          <line x1="4" y1="4" x2="9" y2="9"></line>
+        </svg>
+      </button>
+
+      <button class="btn-skip" id="prevBtn" aria-label="Previous track">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>
+      </button>
+
+      <button class="btn-play" id="playBtn" aria-label="Play">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none;"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+      </button>
+
+      <button class="btn-skip" id="nextBtn" aria-label="Next track">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 5h-2v14h2zM4 5v14l11-7z"/></svg>
+      </button>
+
+      <button class="btn-ghost" id="repeatBtn" aria-pressed="false" aria-label="Repeat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="17 1 21 5 17 9"></polyline>
+          <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+          <polyline points="7 23 3 19 7 15"></polyline>
+          <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="volume-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+      </svg>
+      <input type="range" id="volumeSlider" min="0" max="100" value="70" aria-label="Volume">
+    </div>
+  </div>
+
+  <div class="queue-panel">
+    <div class="queue-heading">Up next</div>
+    <ul class="queue-list" id="queueList"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

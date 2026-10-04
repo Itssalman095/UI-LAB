@@ -1,1 +1,192 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Packing Loader</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="loader">
+
+  <!-- TOP RAIL -->
+  <div class="rail"></div>
+
+
+  <!-- CRANE -->
+  <div class="crane" id="crane">
+
+    <div class="rig">
+
+      <div class="joint"></div>
+
+      <div class="arm"></div>
+
+      <div class="claw" id="claw">
+
+        <svg viewBox="0 0 50 34">
+      
+          <!-- center mount -->
+          <path
+            class="claw-top"
+            d="M25 2 L25 10"
+          />
+      
+          <!-- left arm -->
+          <path
+            class="claw-arm left-arm"
+            d="M25 9 L16 14 L10 26"
+          />
+      
+          <!-- right arm -->
+          <path
+            class="claw-arm right-arm"
+            d="M25 9 L34 14 L40 26"
+          />
+      
+          <!-- left gripping finger -->
+          <path
+            class="finger left-finger"
+            d="M10 25 L10 29 L16 31"
+          />
+      
+          <!-- right gripping finger -->
+          <path
+            class="finger right-finger"
+            d="M40 25 L40 29 L34 31"
+          />
+      
+        </svg>
+      
+        <div class="package loaded"></div>
+      
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CONVEYOR -->
+  <div class="belt"></div>
+
+
+  <!-- BOX TRACK -->
+  <div class="track" id="track"></div>
+
+
+  <!-- LOADING -->
+  <div class="label">
+
+    <span>L</span>
+    <span>O</span>
+    <span>A</span>
+    <span>D</span>
+    <span>I</span>
+    <span>N</span>
+    <span>G</span>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     BOX TEMPLATE
+========================= -->
+
+<template id="box-template">
+
+  <div class="box">
+
+    <svg viewBox="0 0 72 64">
+
+      <!-- BOX BODY -->
+
+      <path
+        class="body"
+        d="M14 22 L14 58 L58 58 L58 22"
+      />
+
+
+      <!-- PRODUCT -->
+
+      <rect
+        class="inside"
+        x="27"
+        y="36"
+        width="18"
+        height="18"
+        rx="2"
+      />
+
+
+      <!-- LEFT FLAP -->
+
+      <rect
+        class="lid-left"
+        x="14"
+        y="17"
+        width="22"
+        height="5"
+        rx="1"
+      />
+
+
+      <!-- RIGHT FLAP -->
+
+      <rect
+        class="lid-right"
+        x="36"
+        y="17"
+        width="22"
+        height="5"
+        rx="1"
+      />
+
+
+      <!-- RIBBON -->
+
+      <g class="ribbon">
+
+        <rect
+          x="34"
+          y="15"
+          width="4"
+          height="43"
+          rx="1"
+        />
+
+        <rect
+          x="14"
+          y="38"
+          width="44"
+          height="4"
+          rx="1"
+        />
+
+        <path d="M36 15 L26 7 L30 15 Z"/>
+
+        <path d="M36 15 L46 7 L42 15 Z"/>
+
+        <rect
+          x="33"
+          y="12"
+          width="6"
+          height="5"
+          rx="1"
+        />
+
+      </g>
+
+    </svg>
+
+  </div>
+
+</template>
+</body>
+</html>

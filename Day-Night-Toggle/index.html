@@ -1,1 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Day / Night Mode Toggle</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="stage" id="stage">
+
+    <!-- =========================
+         PAGE STARS
+    ========================== -->
+    <div class="page-stars" id="pageStars"></div>
+
+
+    <!-- =========================
+         SHOOTING STARS
+    ========================== -->
+    <div class="shooting-stars">
+
+      <div
+        class="shooting"
+        style="
+          top:14%;
+          left:70%;
+          animation-duration:5.5s;
+          animation-delay:.2s;
+        "
+      ></div>
+
+      <div
+        class="shooting"
+        style="
+          top:26%;
+          left:40%;
+          animation-duration:8s;
+          animation-delay:.5s;
+        "
+      ></div>
+
+      <div
+        class="shooting"
+        style="
+          top:8%;
+          left:85%;
+          animation-duration:7s;
+          animation-delay:.8s;
+        "
+      ></div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN SCENE
+    ========================== -->
+    <div class="scene">
+
+      <!-- LABEL -->
+      <div class="label">
+
+        <span
+          id="labelDay"
+          class="visible"
+        >
+          Day Mode
+        </span>
+
+        <span id="labelNight">
+          Night Mode
+        </span>
+
+      </div>
+
+
+      <!-- =========================
+           MAIN TOGGLE
+      ========================== -->
+      <button
+        class="switch"
+        id="switchBtn"
+        aria-pressed="false"
+        aria-label="Toggle day and night mode"
+      >
+
+        <div class="track">
+
+          <!-- TRACK STARS -->
+          <div
+            class="stars"
+            id="trackStars"
+          ></div>
+
+
+          <div class="toggle-shooting-stars">
+            <span class="toggle-shooting s1"></span>
+            <span class="toggle-shooting s2"></span>
+            <span class="toggle-shooting s3"></span>
+          </div>
+
+          <!-- MOON -->
+          <div class="moon">
+
+            <div class="moon">🌙</div>
+
+          </div>
+
+
+          <!-- SUN -->
+          <div class="sun"></div>
+
+
+          <!-- =========================
+               FLYING BIRDS
+          ========================== -->
+          <div class="birds">
+
+            <svg
+              class="bird b1"
+              viewBox="0 0 14 8"
+              aria-hidden="true"
+            >
+              <path
+                class="wing"
+                d="M0 6 Q7 -2 14 6 Q7 3 0 6Z"
+                fill="#eef6ff"
+              />
+            </svg>
+
+
+            <svg
+              class="bird b2"
+              viewBox="0 0 14 8"
+              aria-hidden="true"
+            >
+              <path
+                class="wing"
+                d="M0 6 Q7 -2 14 6 Q7 3 0 6Z"
+                fill="#eef6ff"
+              />
+            </svg>
+
+
+            <svg
+              class="bird b3"
+              viewBox="0 0 14 8"
+              aria-hidden="true"
+            >
+              <path
+                class="wing"
+                d="M0 6 Q7 -2 14 6 Q7 3 0 6Z"
+                fill="#eef6ff"
+              />
+            </svg>
+
+          </div>
+
+
+          <!-- =========================
+               MOVING CLOUD
+          ========================== -->
+          <div class="clouds">
+
+            <div class="cloud-track">
+
+              <img
+                src="cloud2.png"
+                alt=""
+                aria-hidden="true"
+                draggable="false"
+              >
+
+              <img
+                src="cloud2.png"
+                alt=""
+                aria-hidden="true"
+                draggable="false"
+              >
+
+              <img
+              src="cloud2.png"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            >
+
+            <img
+            src="cloud2.png"
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+          >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             KNOB
+        ========================== -->
+        <div class="knob"></div>
+
+      </button>
+
+
+
+      <!-- =========================
+           REFLECTION
+      ========================== -->
+      <div
+        class="switch reflection"
+        id="reflectionEl"
+        aria-hidden="true"
+      >
+
+        <div class="track">
+
+          <!-- REFLECTION STARS -->
+          <div
+            class="stars"
+            id="reflectionStars"
+          ></div>
+
+
+          <!-- REFLECTION MOON -->
+          <div class="moon">
+
+            <div class="moon">🌙</div>
+
+
+          </div>
+
+
+          <!-- REFLECTION SUN -->
+          <div class="sun"></div>
+
+
+          <!-- =========================
+               REFLECTION CLOUD
+          ========================== -->
+          <div class="clouds">
+
+            <div class="cloud-track">
+
+              <img
+                src="cloud.png"
+                alt=""
+                aria-hidden="true"
+                draggable="false"
+              >
+
+              <img
+                src="cloud.png"
+                alt=""
+                aria-hidden="true"
+                draggable="false"
+              >
+
+
+              <img
+              src="cloud2.png"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            >
+
+            <img
+            src="cloud2.png"
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+          >
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- REFLECTION KNOB -->
+        <div class="knob"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

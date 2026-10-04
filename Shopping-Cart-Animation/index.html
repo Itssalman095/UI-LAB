@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart loading animation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <div class="cart-stage">
+    <div class="items" id="items">
+    </div>
+
+    <svg
+  class="cart-icon"
+  width="180"
+  height="180"
+  viewBox="0 0 180 180"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Handle -->
+  <path
+    d="M20 38H52L69 108"
+    stroke="currentColor"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Cart basket -->
+  <path
+    d="M62 55H158L143 108H75L62 55Z"
+    fill="currentColor"
+  />
+
+  <!-- Lower cart frame -->
+  <path
+    d="M75 112H143C148 112 152 115 152 120C152 125 148 128 143 128H70C62 128 56 122 56 114C56 110 58 106 62 104"
+    stroke="currentColor"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Left wheel -->
+  <circle
+    cx="78"
+    cy="140"
+    r="10"
+    fill="currentColor"
+  />
+
+  <!-- Right wheel -->
+  <circle
+    cx="139"
+    cy="140"
+    r="10"
+    fill="currentColor"
+  />
+</svg>
+
+    <div class="cart-shadow"></div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

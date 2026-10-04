@@ -1,0 +1,461 @@
+* {
+    box-sizing: border-box;
+    --sz: 8vmin;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #171f2c;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  
+  
+  /* =========================
+     TOGGLE
+  ========================= */
+  
+  .toggle {
+    --w: 340px;
+    --h: 176px;
+  
+    position: relative;
+  
+    width: var(--w);
+    height: var(--h);
+  
+    border-radius: 999px;
+  
+    cursor: pointer;
+  
+    background:
+      linear-gradient(
+        145deg,
+        #11161b 0%,
+        #0b1014 55%,
+        #11161b 100%
+      );
+  
+    box-shadow:
+      14px 18px 24px rgba(4, 7, 11, 0.55),
+  
+      -8px -8px 18px rgba(55, 72, 95, 0.20),
+  
+      inset 7px 7px 13px rgba(0, 0, 0, 0.55),
+  
+      inset -5px -5px 12px rgba(43, 55, 72, 0.16),
+  
+      inset 0 0 0 1px rgba(57, 72, 91, 0.28);
+  
+    overflow: visible;
+  }
+  
+  
+  /* =========================
+     LABELS
+  ========================= */
+  
+  .label {
+    position: absolute;
+  
+    top: 50%;
+  
+    transform: translateY(-50%);
+  
+    font-family:
+      "Segoe UI",
+      Arial,
+      sans-serif;
+  
+    font-size: 58px;
+    font-weight: 400;
+  
+    line-height: 1;
+  
+    letter-spacing: 1px;
+  
+    user-select: none;
+  
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+  
+  
+  /* =========================
+     ON TEXT
+  ========================= */
+  
+  .label-on {
+    left: 45px;
+  
+    color: #ff9f24;
+  
+    text-shadow:
+      0 0 5px rgba(255, 159, 36, 0.85),
+      0 0 14px rgba(255, 159, 36, 0.42),
+      0 0 25px rgba(255, 159, 36, 0.18);
+  
+    opacity: 1;
+  }
+  
+  
+  /* =========================
+     OFF TEXT
+  ========================= */
+  
+  .label-off {
+    right: 45px;
+  
+    color: #3d434c;
+  
+    text-shadow:
+      0 0 5px rgba(124, 135, 152, 0.25),
+      0 0 14px rgba(124, 135, 152, 0.12);
+  
+    opacity: 0;
+  
+    transform:
+      translateY(-50%)
+      translateX(10px);
+  
+    font-size: 52px;
+  }
+  
+  
+  /* =========================
+     KNOB OUTER
+  ========================= */
+  
+  .knob-track {
+    position: absolute;
+  
+    top: 8px;
+    left: 8px;
+  
+    width: 160px;
+    height: 160px;
+  
+    border-radius: 50%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background:
+      linear-gradient(
+        145deg,
+        #242c39 0%,
+        #1c2430 45%,
+        #121820 100%
+      );
+  
+    box-shadow:
+      12px 17px 22px rgba(3, 6, 10, 0.65),
+  
+      -8px -8px 17px rgba(64, 81, 106, 0.28),
+  
+      5px 7px 10px rgba(0, 0, 0, 0.55),
+  
+      inset 0 0 0 1px rgba(7, 11, 16, 0.9),
+  
+      inset 5px 5px 9px rgba(62, 76, 96, 0.12);
+  
+    transform:
+      translateX(calc(var(--w) - var(--h)))
+      rotate(140deg);
+  
+    transition:
+      transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  
+  
+  /* =========================
+     OFF KNOB POSITION
+  ========================= */
+  
+  .toggle.off .knob-track {
+    transform:
+      translateX(0)
+      rotate(-140deg);
+  }
+  
+  
+  /* =========================
+     KNOB INNER
+  ========================= */
+  
+  .knob-inner {
+    width: 48px;
+    height: 48px;
+  
+    position: relative;
+  
+    border-radius: 50%;
+  
+    background:
+      radial-gradient(
+        circle at 50% 27%,
+        #fff5dc 0%,
+        #ffe5bd 10%,
+        #ffc477 28%,
+        #f3a43c 55%,
+        #d27c19 78%,
+        #9d550d 100%
+      );
+  
+    border:
+      2.5px solid rgba(2, 2, 2, 0.6);
+  
+    box-shadow:
+  
+      /* outer glow */
+      0 0 5px 1px
+        rgba(255, 157, 31, 0.90),
+  
+      0 0 13px 10px
+        rgba(255, 157, 31, 0.20),
+  
+      0 0 25px 6px
+        rgba(255, 157, 31, 0.18),
+  
+      /* upper bevel */
+      inset 3px 3px 5px
+        rgba(255, 255, 255, 0.55),
+  
+      /* lower bevel */
+      inset -4px -4px 6px
+        rgba(92, 43, 3, 0.55);
+  
+    transition:
+      background 0.4s ease,
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+  
+  
+  /* =========================
+     KNOB TOP GLOSS
+  ========================= */
+  
+  .knob-inner::before {
+    content: "";
+  
+    position: absolute;
+  
+    width: 22px;
+    height: 15px;
+  
+    top: 5px;
+    left: 7px;
+  
+    border-radius: 50%;
+  
+    background:
+      radial-gradient(
+        ellipse,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.45) 35%,
+        rgba(255, 255, 255, 0) 75%
+      );
+  
+    filter: blur(1px);
+  
+    transform: rotate(-25deg);
+  
+    pointer-events: none;
+  }
+  
+  
+  /* =========================
+     KNOB CENTER LIGHT
+  ========================= */
+  
+  .knob-inner::after {
+    content: "";
+  
+    position: absolute;
+  
+    width: 20px;
+    height: 20px;
+  
+    top: 14px;
+    left: 14px;
+  
+    border-radius: 50%;
+  
+    background:
+      radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.38) 0%,
+        rgba(255, 255, 255, 0.10) 35%,
+        rgba(255, 255, 255, 0) 75%
+      );
+  
+    filter: blur(2px);
+  
+    pointer-events: none;
+  }
+  
+  
+  /* =========================
+     OFF STATE
+  ========================= */
+  
+  .toggle.off .label-on {
+    opacity: 0;
+  
+    transform:
+      translateY(-50%)
+      translateX(-10px);
+  }
+  
+  
+  .toggle.off .label-off {
+    opacity: 1;
+  
+    transform:
+      translateY(-50%)
+      translateX(0);
+  }
+  
+  
+  /* =========================
+     OFF KNOB INNER
+     SAME GRAY COLOR
+  ========================= */
+  
+  .toggle.off .knob-inner {
+  
+    background:
+      radial-gradient(
+        circle at 32% 27%,
+        #8994a7 0%,
+        #6b7689 14%,
+        #5a6578 32%,
+        #3d4658 60%,
+        #282f3d 82%,
+        #1c222d 100%
+      );
+  
+    border-color:
+      rgba(111, 124, 143, 0.75);
+  
+    box-shadow:
+  
+      /* subtle gray ambient glow */
+      0 0 5px 1px
+        rgba(120, 135, 155, 0.30),
+  
+      0 0 13px 3px
+        rgba(100, 115, 135, 0.13),
+  
+      /* upper bevel */
+      inset 3px 3px 5px
+        rgba(255, 255, 255, 0.18),
+  
+      /* lower depth */
+      inset -4px -4px 6px
+        rgba(0, 0, 0, 0.58);
+  }
+  
+  
+  /* =========================
+     OFF TOP GLOSS
+  ========================= */
+  
+  .toggle.off .knob-inner::before {
+  
+    background:
+      radial-gradient(
+        ellipse,
+        rgba(255, 255, 255, 0.42) 0%,
+        rgba(255, 255, 255, 0.16) 35%,
+        rgba(255, 255, 255, 0) 75%
+      );
+  }
+  
+  
+  /* =========================
+     OFF CENTER LIGHT
+  ========================= */
+  
+  .toggle.off .knob-inner::after {
+  
+    background:
+      radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.04) 35%,
+        rgba(255, 255, 255, 0) 75%
+      );
+  }
+  
+  
+  /* =========================
+     HOVER
+  ========================= */
+  
+  .toggle:hover .knob-track {
+    box-shadow:
+      12px 17px 22px rgba(3, 6, 10, 0.65),
+  
+      -8px -8px 19px rgba(64, 81, 106, 0.32),
+  
+      5px 7px 10px rgba(0, 0, 0, 0.55),
+  
+      inset 0 0 0 1px rgba(7, 11, 16, 0.9),
+  
+      inset 5px 5px 9px rgba(62, 76, 96, 0.14);
+  }
+  
+  
+  /* =========================
+     RESPONSIVE
+  ========================= */
+  
+  @media (max-width: 500px) {
+  
+    .toggle {
+      --w: 300px;
+      --h: 155px;
+    }
+  
+    .knob-track {
+      width: 139px;
+      height: 139px;
+  
+      top: 8px;
+      right: 8px;
+    }
+  
+    .toggle.off .knob-track {
+      left: 8px;
+    }
+  
+    .label {
+      font-size: 50px;
+    }
+  
+    .label-on {
+      left: 38px;
+    }
+  
+    .label-off {
+      right: 38px;
+    }
+  
+    .knob-inner {
+      width: 43px;
+      height: 43px;
+    }
+  }
+  

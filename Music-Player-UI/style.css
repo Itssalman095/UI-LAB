@@ -24,7 +24,7 @@
     color:var(--cream);
 
     background:
-      url("bg.png") center / cover no-repeat fixed;
+      url("image.png") center / cover no-repeat fixed;
     display:flex;
     align-items:center;
     justify-content:center;

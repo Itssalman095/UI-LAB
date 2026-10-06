@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6fb;
+}
+.loader {
+    --background: linear-gradient(135deg, #23C4F8, #275EFE);
+    --shadow: rgba(39, 94, 254, 0.28);
+    --text: #6C7486;
+    --page: rgba(255, 255, 255, 0.36);
+    --page-fold: rgba(255, 255, 255, 0.52);
+    --duration: 3s;
+    width: 200px;
+    height: 140px;
+    position: relative;
+  }
+.loader::before,
+.loader::after{
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    width: 120px;
+    top: 80%;
+    box-shadow: 0 16px 12px var(--shadow);
+    transform: rotate(-6deg);
+}
+.loader::after{
+    right: 4px;
+    transform: rotate(6deg);
+}
+.loader::before{
+    left: 4px;
+}
+.loader > div{
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    position: relative;
+    perspective: 600px;
+    border-radius: 14px;
+    box-shadow: 0 6px 10px var(--shadow);
+    overflow: hidden;
+}
+.loader ul{
+    list-style: none;
+    position: relative;
+}
+.loader ul li{
+    --r:180deg;
+    --o:0;
+    --c:var(--page);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 90px;
+    height: 120px;
+    background: var(--c);
+    border-radius: 6px;
+    transform-origin: 100% 50%;
+    transform: rotateY(var(--r));
+    opacity: var(--o);
+    animation: var(--duration) ease infinite;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+.loader ul li::before{
+    content: '';
+    position: absolute;
+    inset: 12px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 2px, transparent 2px);
+    background-size: 100% 14%;
+}
+.loader ul li:first-child{
+    --r:0deg; --o:1;
+}
+.loader ul li:last-child{
+    --o:1;
+}
+.loader ul li:nth-child(2){
+    --c:var(--page-fold);
+    animation-name: page-2;
+}
+.loader ul li:nth-child(3){
+    --c:var(--page-fold);
+    animation-name: page-3;
+}
+.loader ul li:nth-child(4){
+    --c:var(--page-fold);
+    animation-name: page-4;
+}
+.loader ul li:nth-child(5){
+    --c:var(--page-fold);
+    animation-name: page-5;
+}
+.loader span{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--text);
+    font-weight: 500;
+    letter-spacing: 0.4px;
+}
+@keyframes page-2{
+    0%{transform: rotateY(180deg); opacity: 0;}
+    20%{opacity: 1;}
+    35%, 100%{opacity: 0;}
+    50%, 100%{transform: rotateY(0deg);}
+}
+@keyframes page-3{
+    15%{transform: rotateY(180deg); opacity: 0;}
+    35%{opacity: 1;}
+    50%, 100%{opacity: 0;}
+    65%, 100%{transform: rotateY(0deg);}
+}
+@keyframes page-4{
+    30%{transform: rotateY(180deg); opacity: 0;}
+    50%{opacity: 1;}
+    65%, 100%{opacity: 0;}
+    80%, 100%{transform: rotateY(0deg);}
+}
+@keyframes page-5{
+    45%{transform: rotateY(180deg); opacity: 0;}
+    65%{opacity: 1;}
+    80%, 100%{opacity: 0;}
+    95%, 100%{transform: rotateY(0deg);}
+}

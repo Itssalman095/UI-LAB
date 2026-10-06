@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>on.time — Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-glow glow-1"></div>
+<div class="bg-glow glow-2"></div>
+<div class="vignette"></div>
+
+<div class="phone">
+  <div class="statusbar">
+    <span id="clock">9:41</span>
+    <div class="dots">▂▄▆ ⛁</div>
+  </div>
+
+ 
+
+  <div class="tabs">
+    <div class="tab active" data-tab="schedule">Schedule</div>
+    <div class="tab" data-tab="note">Note</div>
+  </div>
+
+  <div class="content">
+    <!-- SCHEDULE VIEW -->
+    <div id="schedule-view">
+      <div class="month-nav">
+        <button id="prevMonth">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="month-title" id="monthTitle">SEPTEMBER 2026</div>
+        <button id="nextMonth">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="weekday-row">
+        <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+      </div>
+      <div class="day-grid" id="dayGrid"></div>
+
+      <div class="schedule-section">
+        <div class="schedule-heading">
+          <h3 id="scheduleDateLabel">Today's Schedule</h3>
+          <span id="scheduleCount">0 items</span>
+        </div>
+        <div id="scheduleList"></div>
+      </div>
+    </div>
+
+    <!-- NOTE VIEW -->
+    <div id="note-view" style="display:none;">
+      <div class="note-view">
+        <div class="note-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="noteSearch" placeholder="Search notes...">
+        </div>
+        <div id="noteList"></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="fab" id="fabAdd">+</button>
+  <div class="home-bar"></div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <div class="modal-title">New Schedule</div>
+      <div class="modal-sub" id="modalDateSub">Date selected</div>
+      <div class="modal-divider"></div>
+
+      <div class="field">
+        <label>Title</label>
+        <input type="text" id="inpTitle" placeholder="e.g. Meeting with Anomali Team">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Start time</label>
+          <input type="time" id="inpStart" value="09:00">
+        </div>
+        <div class="field">
+          <label>End time</label>
+          <input type="time" id="inpEnd" value="10:00">
+        </div>
+      </div>
+      <div class="field">
+        <label>Place</label>
+        <input type="text" id="inpPlace" placeholder="e.g. Anomali Office">
+      </div>
+      <div class="field">
+        <label>Notes</label>
+        <textarea id="inpNotes" placeholder="Write any extra details..."></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-cancel" id="btnCancel">Cancel</button>
+        <button class="btn btn-save" id="btnSave">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<script src="script.js"></script>
+</body>
+</html>
